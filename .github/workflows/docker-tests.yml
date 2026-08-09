@@ -1,0 +1,151 @@
+# Runs the full suite inside a Playwright Docker image (alongside the native ci.yml jobs).
+# Publishes a browsable Allure report to GitHub Pages and uploads the same HTML as an artifact.
+#
+# One-time repo setup: Settings → Pages → Build and deployment → Source: GitHub Actions.
+
+name: Docker tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  PARTICIPANT_POOL_CACHE_KEY: participant-pool-v1
+  IMAGE_NAME: hemagon-playwright:ci
+
+jobs:
+  test:
+    name: Full suite in Docker
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      BASE_URL:           ${{ secrets.BASE_URL }}
+      ORGANIZER_EMAIL:    ${{ secrets.ORGANIZER_EMAIL }}
+      ORGANIZER_PASSWORD: ${{ secrets.ORGANIZER_PASSWORD }}
+    outputs:
+      exit_code:    ${{ steps.run.outputs.exit_code }}
+      report_ready: ${{ steps.report.outputs.ready }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/cache@v4
+        with:
+          path: .cache/participant-pool.json
+          key: ${{ env.PARTICIPANT_POOL_CACHE_KEY }}
+
+      - name: Build test image
+        run: docker build -t "${IMAGE_NAME}" .
+
+      - name: Run full suite
+        id: run
+        run: |
+          mkdir -p allure-results allure-report test-results .cache/auth
+          set +e
+          docker run --rm \
+            --shm-size=2g \
+            -e CI=1 \
+            -e BASE_URL \
+            -e ORGANIZER_EMAIL \
+            -e ORGANIZER_PASSWORD \
+            -v "$PWD/.cache:/app/.cache" \
+            -v "$PWD/allure-results:/app/allure-results" \
+            -v "$PWD/allure-report:/app/allure-report" \
+            -v "$PWD/test-results:/app/test-results" \
+            "${IMAGE_NAME}"
+          code=$?
+          echo "exit_code=${code}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Detect Allure report
+        id: report
+        if: always()
+        run: |
+          if [ -f allure-report/index.html ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload Allure HTML report
+        if: always() && steps.report.outputs.ready == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report/
+          retention-days: 14
+
+      - name: Upload raw results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-test-results
+          path: |
+            allure-results/
+            test-results/
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "## Docker test run"
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Tests exit code | \`${{ steps.run.outputs.exit_code }}\` |"
+            if [ -f allure-report/index.html ]; then
+              echo "| Allure HTML | generated — see **deploy-report** job or **allure-report** artifact |"
+            else
+              echo "| Allure HTML | not generated |"
+            fi
+            echo ""
+            echo "Download the **allure-report** artifact from this workflow run to browse offline."
+            echo "On \`main\`/\`master\`, the **deploy-report** job publishes the same HTML to GitHub Pages."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Fail if tests failed
+        if: steps.run.outputs.exit_code != '0'
+        run: exit 1
+
+  deploy-report:
+    name: Publish Allure to GitHub Pages
+    needs: test
+    if: >-
+      always()
+      && needs.test.result != 'cancelled'
+      && needs.test.outputs.report_ready == 'true'
+      && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: allure-report
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Pages URL
+        run: |
+          echo "## Allure report published" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "**${{ steps.deployment.outputs.page_url }}**" >> "$GITHUB_STEP_SUMMARY"

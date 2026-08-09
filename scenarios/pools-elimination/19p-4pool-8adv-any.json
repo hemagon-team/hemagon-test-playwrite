@@ -1,0 +1,9 @@
+{
+  "id": "19p-4pool-8adv-any",
+  "description": "19 participants, 4 pools, 8 advance, min 2 from each pool",
+  "participantsNumber": 19,
+  "poolsCount": 4,
+  "advanceCount": 8,
+  "minimumFromEachPool": 2,
+  "thirdPlace": true
+}

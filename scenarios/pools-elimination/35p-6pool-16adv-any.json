@@ -1,0 +1,9 @@
+{
+  "id": "35p-6pool-16adv-any",
+  "description": "35 participants, 6 pools, 16 advance, min 2 from each pool, no bronze fight",
+  "participantsNumber": 35,
+  "poolsCount": 6,
+  "advanceCount": 16,
+  "minimumFromEachPool": 2,
+  "thirdPlace": false
+}

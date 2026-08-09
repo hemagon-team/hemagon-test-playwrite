@@ -1,0 +1,39 @@
+{
+  "name": "hemagon-playwright",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node node_modules/@playwright/test/cli.js test",
+    "test:api": "node node_modules/@playwright/test/cli.js test --project=API",
+    "test:ui": "node node_modules/@playwright/test/cli.js test --project=UI",
+    "test:ui:fast": "node node_modules/@playwright/test/cli.js test --project=UI --grep-invert @scenario",
+    "test:scenarios": "node node_modules/@playwright/test/cli.js test --project=UI --grep @scenario",
+    "test:ui:open": "node node_modules/@playwright/test/cli.js test --ui",
+    "test:headed": "node node_modules/@playwright/test/cli.js test --headed --project=UI",
+    "lint": "node node_modules/eslint/bin/eslint.js \"src/**/*.ts\" \"tests/**/*.ts\" \"*.ts\" \"scripts/**/*.mjs\"",
+    "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
+    "trace": "node node_modules/playwright/cli.js show-trace",
+    "codegen": "node node_modules/playwright/cli.js codegen",
+    "postinstall": "node node_modules/playwright/cli.js install chromium",
+    "browsers": "node node_modules/playwright/cli.js install chromium",
+    "allure:generate": "node scripts/allure-generate.js",
+    "allure:open": "node scripts/allure-open.js",
+    "allure:report": "npm run allure:generate && npm run allure:open",
+    "probe:login": "node scripts/probe-login.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1",
+    "allure-commandline": "^2.42.0",
+    "allure-playwright": "^3.9.0",
+    "eslint": "^9.39.4",
+    "globals": "^17.6.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.60.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "zod": "^4.4.3"
+  }
+}

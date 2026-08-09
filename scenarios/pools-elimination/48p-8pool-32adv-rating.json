@@ -1,0 +1,9 @@
+{
+  "id": "48p-8pool-32adv-rating",
+  "description": "48 participants, 8 pools, 32 advance, rating-based pool exit",
+  "participantsNumber": 48,
+  "poolsCount": 8,
+  "advanceCount": 32,
+  "minimumFromEachPool": "any",
+  "thirdPlace": true
+}
