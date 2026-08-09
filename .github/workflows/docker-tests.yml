@@ -50,6 +50,8 @@ jobs:
       - name: Run full suite
         id: run
         run: |
+          # Fresh output dirs on the host; bind mounts stay in place inside the container.
+          rm -rf allure-results allure-report test-results
           mkdir -p allure-results allure-report test-results .cache/auth
           set +e
           docker run --rm \
