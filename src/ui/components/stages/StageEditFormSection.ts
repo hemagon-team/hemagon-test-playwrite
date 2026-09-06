@@ -22,11 +22,24 @@ export class StageEditFormSection {
     await expect(this.form).toBeVisible({ timeout: TIMEOUTS.long });
   }
 
-  /** Selects a preset "Goes next stage" count (2 / 4 / 8 / 16 / 32 / 64). */
+  /** Selects a preset or custom "Goes next stage" count (all-advance = roster size). */
   async setOutputCount(count: number): Promise<void> {
-    const radio = this.form.locator(nominationStagesSelectors.outputCountRadio(count));
-    await radio.check();
-    await expect(radio).toBeChecked();
+    const preset = this.form.locator(nominationStagesSelectors.outputCountRadio(count));
+
+    if (await preset.isVisible()) {
+      await preset.check();
+      await expect(preset).toBeChecked();
+      return;
+    }
+
+    const customRadio = this.form.locator(nominationStagesSelectors.outputCountCustomRadio);
+    await customRadio.check();
+    await expect(customRadio).toBeChecked();
+
+    const customInput = this.form.locator(nominationStagesSelectors.outputCountCustomInput);
+    await expect(customInput).toBeVisible({ timeout: TIMEOUTS.short });
+    await customInput.fill(String(count));
+    await expect(customInput).toHaveValue(String(count));
   }
 
   /** Selects how many fighters are guaranteed to advance from each pool ("any" or 1–5). */

@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import {
+  listPoolsDoubleEliminationScenarios,
   listPoolsEliminationScenarios,
   listSwissScenarios,
 } from '../../src/helpers/loadScenario';
@@ -15,6 +16,7 @@ test.describe('Scenario capacity', () => {
   test('the shared participant pool covers the largest scenario roster', () => {
     const rosters = [
       ...listPoolsEliminationScenarios(),
+      ...listPoolsDoubleEliminationScenarios(),
       ...listSwissScenarios(),
     ].map(scenario => ({ id: scenario.id, size: scenario.participantsNumber }));
 

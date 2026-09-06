@@ -98,6 +98,11 @@ export class StageCardSection {
     await this.settings.expectGoesNextStage(count);
   }
 
+  /** Every enrolled fighter advances — `goes next stage` equals the roster size. */
+  async goesNextStageAll(rosterSize: number): Promise<void> {
+    await this.goesNextStage(rosterSize);
+  }
+
   /**
    * POOL stage — runs every pool (RUN → RND results) and returns to the stages page
    * after each, asserting "All fights done" on the card.
@@ -243,6 +248,15 @@ export class StageCardSection {
     await this.clickBuildRoundButton(
       nominationStagesSelectors.buildFinalsButton(this.index),
     );
+  }
+
+  /**
+   * DOUBLE ELIMINATION — advance winner/loser brackets to the next round
+   * (`POST /organizer/stages/build-next-round-elimination`). Shares the build-finals
+   * button id; only the enabled copy for the current round is clicked.
+   */
+  async buildNextEliminationRound(): Promise<void> {
+    await this.buildFinals();
   }
 
   /**

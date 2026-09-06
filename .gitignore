@@ -6,6 +6,10 @@ node_modules/
 /playwright/.cache/
 /allure-results/
 /allure-report/
+.tmp-allure-report/
+docs/discovery/double-elimination-snapshots/
 .tools/
 .cache/
 .idea/
+.pw-install.log
+.cursor/

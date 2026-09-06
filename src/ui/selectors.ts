@@ -72,6 +72,11 @@ export const nominationStagesSelectors = {
   unlimitedPoolSwitch: '.form-group:has-text("Unlimited pool") .switch',
   /** "Goes next stage" presets — only present in Edit mode once a later stage exists. */
   outputCountRadio: (n: number) => `#input-stage-outputCount-${n}`,
+  outputCountCustomRadio: '#input-stage-outputCount-num',
+  outputCountCustomInput: '#input-stage-outputCount-num-value',
+  /** Double Elimination — "Finals mode" on the add-stage form. */
+  finalsModeRadio: (mode: 'BO_1' | 'BO_3') =>
+    `#input-stage-finalsMode-${mode === 'BO_1' ? 'bo1' : 'bo3'}`,
   /** "From each pool surely goes to the next stage" — `any` / `1`…`5` (Edit form, pools). */
   minimumFromEachPoolRadio: (value: string | number) => `#input-stage-minimumFromEachPool-${value}`,
   /** "Hold a fight for the third place" — elimination add/edit form, defaults to true. */
@@ -129,6 +134,11 @@ export const nominationStagesSelectors = {
   finalsGoldFightLabel:   'Finals, gold fight',
   finalsBronzeFightLabel: 'Finals, bronze fight',
   eliminationSidePendingLabel: 'Previous round of this side is not finished yet',
+  winnerBracketLabel:          'Winner Bracket',
+  loserBracketLabel:           'Loser Bracket',
+  /** Double Elim — `Upper bracket, Left/Right bracket, Round N, fight M` fight labels. */
+  doubleElimBracketFightLabel: (round: number) =>
+    new RegExp(`Upper bracket, (?:Left|Right) bracket, Round ${round}, fight \\d+`, 'i'),
 } as const;
 
 /**

@@ -25,6 +25,20 @@ export class StageCardEliminationBracketSection {
     await expect(marker).toBeVisible({ timeout: TIMEOUTS.long });
   }
 
+  /** Double Elimination — winner bracket section is rendered after build-next-stage. */
+  async expectWinnerBracketLoaded(): Promise<void> {
+    const marker = this.card.getByText(nominationStagesSelectors.winnerBracketLabel, { exact: true });
+    await this.ensureExpanded(marker);
+    await expect(marker).toBeVisible({ timeout: TIMEOUTS.long });
+  }
+
+  /** Double Elimination — winner-bracket round N fight cards (left + right halves). */
+  async expectDoubleElimRoundFightCount(round: number, count: number): Promise<void> {
+    await this.expectWinnerBracketLoaded();
+    await expect(this.card.getByText(nominationStagesSelectors.doubleElimBracketFightLabel(round)))
+      .toHaveCount(count, { timeout: TIMEOUTS.long });
+  }
+
   /** Counts fights in a round that already show "All fights done". */
   async roundFightsDoneCount(round: number, options: RoundOptions = {}): Promise<number> {
     if (options.finals) {

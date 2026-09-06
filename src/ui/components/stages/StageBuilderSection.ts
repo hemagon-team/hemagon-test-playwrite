@@ -1,3 +1,4 @@
+import type { DoubleElimFinalsMode } from '../../../data/doubleElimData';
 import { StageType, type StageTypeCode, type TillFinalsOption } from '../../../data/nominationStageData';
 import type { NominationStagesCardsSection } from './NominationStagesCardsSection';
 import type { StageAddFormSection } from './StageAddFormSection';
@@ -20,6 +21,11 @@ export interface EliminationStageOptions extends CommonStageOptions {
 
 export interface SwissStageOptions extends CommonStageOptions {
   tillFinals?: TillFinalsOption;
+}
+
+export interface DoubleEliminationStageOptions extends CommonStageOptions {
+  tillFinals?:  TillFinalsOption;
+  finalsMode?:  DoubleElimFinalsMode;
 }
 
 /**
@@ -52,6 +58,15 @@ export class StageBuilderSection {
     return this.create(StageType.Swiss, async () => {
       if (options.fightTime !== undefined)  await this.form.common.setFightTime(options.fightTime);
       if (options.tillFinals !== undefined) await this.form.common.setTillFinals(options.tillFinals);
+    });
+  }
+
+  async doubleElimination(options: DoubleEliminationStageOptions = {}): Promise<StageCardSection> {
+    return this.create(StageType.DoubleElimination, async () => {
+      if (options.fightTime !== undefined)  await this.form.common.setFightTime(options.fightTime);
+      if (options.tillFinals !== undefined) await this.form.common.setTillFinals(options.tillFinals);
+      if (options.finalsMode !== undefined) await this.form.doubleElimination.setFinalsMode(options.finalsMode);
+      await this.form.doubleElimination.expectLoaded();
     });
   }
 

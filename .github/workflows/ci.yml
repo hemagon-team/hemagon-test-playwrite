@@ -1,17 +1,26 @@
+# Single CI pipeline on push: lint/typecheck, then the full Playwright suite in Docker.
+# Allure HTML is uploaded as an artifact; GitHub Pages deploy needs public repo or Enterprise.
+
 name: CI
 
 on:
   push:
     branches: [main, master]
   pull_request:
-  # Full tournament matrices are too slow for every push — they run nightly.
-  schedule:
-    - cron: '0 2 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
-  # Cached shared participant pool; bump the suffix to force a reseed.
   PARTICIPANT_POOL_CACHE_KEY: participant-pool-v1
+  IMAGE_NAME: hemagon-playwright:ci
 
 jobs:
   static:
@@ -28,80 +37,127 @@ jobs:
       - run: npm run typecheck
       - run: npm run lint
 
-  api-tests:
-    name: API tests
-    runs-on: ubuntu-latest
+  test:
+    name: Full suite in Docker
     needs: static
-    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
     env:
-      BASE_URL: ${{ secrets.BASE_URL }}
-      ORGANIZER_EMAIL: ${{ secrets.ORGANIZER_EMAIL }}
+      BASE_URL:           ${{ secrets.BASE_URL }}
+      ORGANIZER_EMAIL:    ${{ secrets.ORGANIZER_EMAIL }}
       ORGANIZER_PASSWORD: ${{ secrets.ORGANIZER_PASSWORD }}
+    outputs:
+      exit_code:    ${{ steps.run.outputs.exit_code }}
+      report_ready: ${{ steps.report.outputs.ready }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      # API tests need no browser, so skip Chromium download here.
-      - run: npm ci --ignore-scripts
-      # The pool-setup dependency seeds through the UI, so a browser is still needed.
-      - run: npm run browsers
-      - uses: actions/cache@v4
-        with:
-          path: .cache/participant-pool.json
-          key: ${{ env.PARTICIPANT_POOL_CACHE_KEY }}
-      - run: npm run test:api
 
-  ui-tests:
-    name: UI tests
-    runs-on: ubuntu-latest
-    needs: static
-    timeout-minutes: 45
-    env:
-      BASE_URL: ${{ secrets.BASE_URL }}
-      ORGANIZER_EMAIL: ${{ secrets.ORGANIZER_EMAIL }}
-      ORGANIZER_PASSWORD: ${{ secrets.ORGANIZER_PASSWORD }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - run: npm ci --ignore-scripts
-      - run: npm run browsers
       - uses: actions/cache@v4
         with:
           path: .cache/participant-pool.json
           key: ${{ env.PARTICIPANT_POOL_CACHE_KEY }}
-      - run: npm run test:ui:fast
 
-  scenario-tests:
-    name: Tournament scenario matrices
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    needs: static
-    timeout-minutes: 90
-    env:
-      BASE_URL: ${{ secrets.BASE_URL }}
-      ORGANIZER_EMAIL: ${{ secrets.ORGANIZER_EMAIL }}
-      ORGANIZER_PASSWORD: ${{ secrets.ORGANIZER_PASSWORD }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - run: npm ci --ignore-scripts
-      - run: npm run browsers
-      - uses: actions/cache@v4
-        with:
-          path: .cache/participant-pool.json
-          key: ${{ env.PARTICIPANT_POOL_CACHE_KEY }}
-      - run: npm run test:scenarios
-      - if: always()
+      - name: Build test image
+        run: docker build -t "${IMAGE_NAME}" .
+
+      - name: Run full suite
+        id: run
+        run: |
+          # Fresh output dirs on the host; bind mounts stay in place inside the container.
+          rm -rf allure-results allure-report test-results
+          mkdir -p allure-results allure-report test-results .cache/auth
+          set +e
+          docker run --rm \
+            --shm-size=2g \
+            -e CI=1 \
+            -e BASE_URL \
+            -e ORGANIZER_EMAIL \
+            -e ORGANIZER_PASSWORD \
+            -v "$PWD/.cache:/app/.cache" \
+            -v "$PWD/allure-results:/app/allure-results" \
+            -v "$PWD/allure-report:/app/allure-report" \
+            -v "$PWD/test-results:/app/test-results" \
+            "${IMAGE_NAME}"
+          code=$?
+          echo "exit_code=${code}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Detect Allure report
+        id: report
+        if: always()
+        run: |
+          if [ -f allure-report/index.html ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload Allure HTML report
+        if: always() && steps.report.outputs.ready == 'true'
         uses: actions/upload-artifact@v4
         with:
-          name: allure-results
-          path: allure-results
+          name: allure-report
+          path: allure-report/
+          retention-days: 14
+
+      - name: Upload raw results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: |
+            allure-results/
+            test-results/
           retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "## Test run"
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Exit code | \`${{ steps.run.outputs.exit_code }}\` |"
+            if [ -f allure-report/index.html ]; then
+              echo "| Allure HTML | download the **allure-report** artifact below |"
+            else
+              echo "| Allure HTML | not generated |"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Fail if tests failed
+        if: steps.run.outputs.exit_code != '0'
+        run: exit 1
+
+  deploy-report:
+    name: Publish Allure to GitHub Pages
+    needs: test
+    if: >-
+      always()
+      && needs.test.result != 'cancelled'
+      && needs.test.outputs.report_ready == 'true'
+      && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: allure-report
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Pages URL
+        run: |
+          echo "## Allure report published" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "**${{ steps.deployment.outputs.page_url }}**" >> "$GITHUB_STEP_SUMMARY"

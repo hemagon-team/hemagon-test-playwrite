@@ -88,4 +88,49 @@ test.describe('Nomination stages', () => {
     await pools.rounds.expectAllPoolsFightersInRange(POOL_FIGHTERS_MIN, POOL_FIGHTERS_MAX);
     await pools.participants.expectParticipantCount(0);
   });
+
+  test('organizer builds Pools → Double Elimination and seeds pools', async ({
+    page,
+    api,
+    resources,
+  }) => {
+    const ENROLLED   = 16;
+    const POOL_COUNT = 3;
+
+    const tournament = await api.tournaments.create({
+      title: autotestLabel('AUTOTEST Pools Double Elim'),
+    });
+    expect(tournament.test).toBe(TOURNAMENT_PURPOSE_IS_TESTING);
+    resources.tournament(tournament._id);
+
+    const nomination = await api.nominations.create(tournament._id);
+    resources.nomination(nomination._id);
+
+    await api.enrollTestUsers(ENROLLED, { nominationId: nomination._id });
+
+    const stagesPage = new NominationStagesPage(page);
+    await stagesPage.open(tournament._id, nomination._id);
+
+    const pools = await stagesPage.add.pool({ fightTime: 120 });
+    await pools.expectTitle(/Stage 1\. Pools/);
+
+    const doubleElim = await stagesPage.add.doubleElimination({
+      fightTime:  120,
+      tillFinals: 'yes',
+      finalsMode: 'BO_1',
+    });
+    await doubleElim.expectTitle(/Stage 2\. Double Elimination/);
+
+    await pools.goesNextStageAll(ENROLLED);
+
+    await pools.pools.addPools(POOL_COUNT);
+    await pools.rounds.expectCount(POOL_COUNT);
+    await pools.pools.seedRandomly();
+
+    await stagesPage.stages.expectCount(2);
+    await pools.settings.expectUsersCount(ENROLLED);
+    await pools.settings.expectGoesNextStage(ENROLLED);
+    await pools.rounds.expectAllPoolsFightersInRange(POOL_FIGHTERS_MIN, POOL_FIGHTERS_MAX);
+    await pools.participants.expectParticipantCount(0);
+  });
 });

@@ -63,18 +63,16 @@ All specs import `test`/`expect` from `src/fixtures/test.ts`. It provides:
 
 ## CI
 
-Two workflows run in parallel:
+On every **push** and **pull request**, a single workflow runs (`.github/workflows/ci.yml`):
 
-| Workflow | What it does |
-|----------|----------------|
-| `.github/workflows/ci.yml` | Native runner: lint, API, UI (fast), nightly `@scenario` matrices |
-| `.github/workflows/docker-tests.yml` | **Full suite in Docker** + Allure HTML on GitHub Pages |
+1. **Typecheck & Lint** (~30 s)
+2. **Full suite in Docker** — all 48 tests including `@scenario` matrices (~8 min) + Allure HTML artifact
 
-**Docker workflow (one-time setup):** Settings → Pages → Build and deployment → **Source: GitHub Actions**. After a green run on `main`/`master`, open the **Publish Allure to GitHub Pages** job — its summary link is the browsable report (GitLab Pages analogue). Every run also uploads an **allure-report** artifact you can download from the workflow page.
+Download **allure-report** from the workflow run to browse results offline. GitHub Pages deploy (job **Publish Allure to GitHub Pages**) works only on public repos or Enterprise — otherwise use the artifact.
 
-Locally: `make docker.test` (needs `.env`), then `make docker.report` or open `allure-report/index.html`.
+Locally: `make docker.test` (needs `.env`), then open `allure-report/index.html`.
 
-The native CI job caches `.cache/participant-pool.json` so the shared participant pool is seeded once rather than per run — bump `PARTICIPANT_POOL_CACHE_KEY` in the workflow to force a reseed. Provide `BASE_URL`, `ORGANIZER_EMAIL`, `ORGANIZER_PASSWORD` as repository secrets.
+Secrets: `BASE_URL`, `ORGANIZER_EMAIL`, `ORGANIZER_PASSWORD`. Participant pool is cached between runs — bump `PARTICIPANT_POOL_CACHE_KEY` in the workflow to force a reseed.
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full plan.
 

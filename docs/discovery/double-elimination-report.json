@@ -1,0 +1,1589 @@
+{
+  "timestamp": "2026-09-06T07:55:01.789Z",
+  "baseUrl": "https://stage.hemagon.com",
+  "participants": 16,
+  "poolCount": 3,
+  "doubleElimAddForm": {
+    "fields": [
+      {
+        "label": "Type",
+        "forId": null
+      },
+      {
+        "label": "Pools",
+        "forId": null
+      },
+      {
+        "label": "Elimination",
+        "forId": null
+      },
+      {
+        "label": "Double Elimination",
+        "forId": null
+      },
+      {
+        "label": "Swiss system",
+        "forId": null
+      },
+      {
+        "label": "Swiss system with hits",
+        "forId": null
+      },
+      {
+        "label": "Pools BOAR",
+        "forId": null
+      },
+      {
+        "label": "fight's time (seconds)",
+        "forId": null
+      },
+      {
+        "label": "Calculate fighters stats based on the results of this stage and the previous stages",
+        "forId": null
+      },
+      {
+        "label": "To the finals",
+        "forId": null
+      },
+      {
+        "label": "Yes",
+        "forId": null
+      },
+      {
+        "label": "No",
+        "forId": null
+      },
+      {
+        "label": "Basic/Advanced qualification ? After the stage will determine the number of fighters for Basic and Advanced and create from them a elimination grid in the corresponding nominations",
+        "forId": null
+      },
+      {
+        "label": "Finals mode",
+        "forId": null
+      },
+      {
+        "label": "Best of 1",
+        "forId": null
+      },
+      {
+        "label": "Best of 3",
+        "forId": null
+      }
+    ],
+    "radios": [
+      {
+        "id": "input-stage-type-POOL",
+        "name": "",
+        "value": "POOL",
+        "checked": false,
+        "visible": true
+      },
+      {
+        "id": "input-stage-type-ELIMINATION",
+        "name": "",
+        "value": "ELIMINATION",
+        "checked": false,
+        "visible": true
+      },
+      {
+        "id": "input-stage-type-ELIMINATION_DOUBLE",
+        "name": "",
+        "value": "ELIMINATION_DOUBLE",
+        "checked": true,
+        "visible": true
+      },
+      {
+        "id": "input-stage-type-SWISS",
+        "name": "",
+        "value": "SWISS",
+        "checked": false,
+        "visible": true
+      },
+      {
+        "id": "input-stage-type-SWISS_HITS",
+        "name": "",
+        "value": "SWISS_HITS",
+        "checked": false,
+        "visible": true
+      },
+      {
+        "id": "input-stage-type-POOL_BOAR",
+        "name": "",
+        "value": "POOL_BOAR",
+        "checked": false,
+        "visible": true
+      },
+      {
+        "id": "input-stage-tillFinals-true",
+        "name": "",
+        "value": "true",
+        "checked": true,
+        "visible": true
+      },
+      {
+        "id": "input-stage-tillFinals-false",
+        "name": "",
+        "value": "false",
+        "checked": false,
+        "visible": true
+      },
+      {
+        "id": "input-stage-tillFinals-abQualification",
+        "name": "",
+        "value": "true",
+        "checked": false,
+        "visible": true
+      },
+      {
+        "id": "input-stage-finalsMode-bo1",
+        "name": "",
+        "value": "BO_1",
+        "checked": true,
+        "visible": true
+      },
+      {
+        "id": "input-stage-finalsMode-bo3",
+        "name": "",
+        "value": "BO_3",
+        "checked": false,
+        "visible": true
+      }
+    ],
+    "inputs": [
+      {
+        "id": "input-stage-fightTime",
+        "name": "",
+        "type": "number",
+        "value": "120",
+        "visible": true
+      },
+      {
+        "id": "",
+        "name": "",
+        "type": "checkbox",
+        "value": "on",
+        "visible": true
+      }
+    ]
+  },
+  "poolEditForm": {
+    "fields": [
+      {
+        "label": "Type",
+        "forId": null
+      },
+      {
+        "label": "Pools",
+        "forId": null
+      },
+      {
+        "label": "Elimination",
+        "forId": null
+      },
+      {
+        "label": "Double Elimination",
+        "forId": null
+      },
+      {
+        "label": "Swiss system",
+        "forId": null
+      },
+      {
+        "label": "Swiss system with hits",
+        "forId": null
+      },
+      {
+        "label": "Pools BOAR",
+        "forId": null
+      },
+      {
+        "label": "fight's time (seconds)",
+        "forId": null
+      },
+      {
+        "label": "Goes next stage",
+        "forId": null
+      },
+      {
+        "label": "2",
+        "forId": null
+      },
+      {
+        "label": "4",
+        "forId": null
+      },
+      {
+        "label": "8",
+        "forId": null
+      },
+      {
+        "label": "16",
+        "forId": null
+      },
+      {
+        "label": "32",
+        "forId": null
+      },
+      {
+        "label": "64",
+        "forId": null
+      },
+      {
+        "label": "From each pool surely goes to the next stage",
+        "forId": null
+      },
+      {
+        "label": "Any, rating prevails",
+        "forId": null
+      },
+      {
+        "label": "1",
+        "forId": null
+      },
+      {
+        "label": "2",
+        "forId": null
+      },
+      {
+        "label": "3",
+        "forId": null
+      },
+      {
+        "label": "4",
+        "forId": null
+      },
+      {
+        "label": "5",
+        "forId": null
+      },
+      {
+        "label": "Unlimited pool",
+        "forId": null
+      }
+    ],
+    "outputCountRadios": [
+      {
+        "id": "input-stage-outputCount-2",
+        "checked": false
+      },
+      {
+        "id": "input-stage-outputCount-4",
+        "checked": false
+      },
+      {
+        "id": "input-stage-outputCount-8",
+        "checked": true
+      },
+      {
+        "id": "input-stage-outputCount-16",
+        "checked": false
+      },
+      {
+        "id": "input-stage-outputCount-32",
+        "checked": false
+      },
+      {
+        "id": "input-stage-outputCount-64",
+        "checked": false
+      },
+      {
+        "id": "input-stage-outputCount-num",
+        "checked": false
+      }
+    ],
+    "minimumFromPoolRadios": [
+      {
+        "id": "input-stage-minimumFromEachPool-any",
+        "checked": true
+      },
+      {
+        "id": "input-stage-minimumFromEachPool-1",
+        "checked": false
+      },
+      {
+        "id": "input-stage-minimumFromEachPool-2",
+        "checked": false
+      },
+      {
+        "id": "input-stage-minimumFromEachPool-3",
+        "checked": false
+      },
+      {
+        "id": "input-stage-minimumFromEachPool-4",
+        "checked": false
+      },
+      {
+        "id": "input-stage-minimumFromEachPool-5",
+        "checked": false
+      }
+    ]
+  },
+  "stageTitles": [],
+  "buildNextStage": {
+    "status": 200,
+    "body": {
+      "_id": "6a9d1c57d2fc1191a3fb328c",
+      "nomination": "6a9d1c52d2fc1191a3fb31cf",
+      "type": "ELIMINATION_DOUBLE",
+      "settings": {
+        "tillFinals": true,
+        "outputCount": false,
+        "minimumFromEachPool": 0,
+        "finalsMode": "BO_1",
+        "unlimitedPool": false,
+        "fightForThirdPlace": true,
+        "fightTime": 120
+      },
+      "order": 0,
+      "pools": [
+        {
+          "_id": "6a9d1c6ad2fc1191a3fb36b5",
+          "title": "Плейофф, 1/8, левая сетка, бой 1",
+          "index": 0,
+          "side": 0,
+          "round": 0,
+          "floor": 0,
+          "stage": "6a9d1c57d2fc1191a3fb328c",
+          "users": [
+            {
+              "country": null,
+              "_id": "65faa6d2505f2cc00d2468d0",
+              "username": "user-822jm",
+              "name": "Dhog Bukk",
+              "club": {
+                "country": null,
+                "_id": "5e285fee8e425229c945e0e4",
+                "idString": "orcs",
+                "title": "Orcs"
+              },
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "65faa6d2505f2cc00d2468d0"
+            },
+            {
+              "country": null,
+              "_id": "67057e9fbf4eb2e6488383f6",
+              "username": "user-e99c",
+              "name": "Zavarak",
+              "club": {
+                "country": null,
+                "_id": "5e285fee8e425229c945e0e4",
+                "idString": "orcs",
+                "title": "Orcs"
+              },
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "67057e9fbf4eb2e6488383f6"
+            }
+          ],
+          "fights": [
+            {
+              "fighter1": {
+                "user": {
+                  "country": null,
+                  "_id": "65faa6d2505f2cc00d2468d0",
+                  "username": "user-822jm",
+                  "name": "Dhog Bukk",
+                  "club": {
+                    "country": null,
+                    "_id": "5e285fee8e425229c945e0e4",
+                    "idString": "orcs",
+                    "title": "Orcs"
+                  },
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "65faa6d2505f2cc00d2468d0"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "fighter2": {
+                "user": {
+                  "country": null,
+                  "_id": "67057e9fbf4eb2e6488383f6",
+                  "username": "user-e99c",
+                  "name": "Zavarak",
+                  "club": {
+                    "country": null,
+                    "_id": "5e285fee8e425229c945e0e4",
+                    "idString": "orcs",
+                    "title": "Orcs"
+                  },
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "67057e9fbf4eb2e6488383f6"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "_id": "6a9d1c6ad2fc1191a3fb36b7",
+              "doubles": 0,
+              "bouts": 0,
+              "timeInitial": 0,
+              "timeSpent": 0,
+              "timeReal": 0,
+              "result": "NONE",
+              "pool": "6a9d1c6ad2fc1191a3fb36b5",
+              "isActive": false,
+              "timerEnabled": false,
+              "__v": 0
+            }
+          ],
+          "usersPlaces": [
+            1,
+            16
+          ],
+          "isTeam": false,
+          "__v": 1
+        },
+        {
+          "_id": "6a9d1c6ad2fc1191a3fb36bb",
+          "title": "Плейофф, 1/8, левая сетка, бой 2",
+          "index": 1,
+          "side": 0,
+          "round": 0,
+          "floor": 0,
+          "stage": "6a9d1c57d2fc1191a3fb328c",
+          "users": [
+            {
+              "country": null,
+              "_id": "5e2863f78e425229c945e0ea",
+              "name": "Ugluck",
+              "club": {
+                "country": null,
+                "_id": "5e285fee8e425229c945e0e4",
+                "idString": "orcs",
+                "title": "Orcs"
+              },
+              "username": "user-tkkd",
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "5e2863f78e425229c945e0ea"
+            },
+            {
+              "country": null,
+              "_id": "5e2863f78e425229c945e0ef",
+              "name": "Sharu",
+              "club": {
+                "country": null,
+                "_id": "5e285fee8e425229c945e0e4",
+                "idString": "orcs",
+                "title": "Orcs"
+              },
+              "username": "user-fowvb",
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "5e2863f78e425229c945e0ef"
+            }
+          ],
+          "fights": [
+            {
+              "fighter1": {
+                "user": {
+                  "country": null,
+                  "_id": "5e2863f78e425229c945e0ea",
+                  "name": "Ugluck",
+                  "club": {
+                    "country": null,
+                    "_id": "5e285fee8e425229c945e0e4",
+                    "idString": "orcs",
+                    "title": "Orcs"
+                  },
+                  "username": "user-tkkd",
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "5e2863f78e425229c945e0ea"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "fighter2": {
+                "user": {
+                  "country": null,
+                  "_id": "5e2863f78e425229c945e0ef",
+                  "name": "Sharu",
+                  "club": {
+                    "country": null,
+                    "_id": "5e285fee8e425229c945e0e4",
+                    "idString": "orcs",
+                    "title": "Orcs"
+                  },
+                  "username": "user-fowvb",
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "5e2863f78e425229c945e0ef"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "_id": "6a9d1c6ad2fc1191a3fb36bd",
+              "doubles": 0,
+              "bouts": 0,
+              "timeInitial": 0,
+              "timeSpent": 0,
+              "timeReal": 0,
+              "result": "NONE",
+              "pool": "6a9d1c6ad2fc1191a3fb36bb",
+              "isActive": false,
+              "timerEnabled": false,
+              "__v": 0
+            }
+          ],
+          "usersPlaces": [
+            8,
+            9
+          ],
+          "isTeam": false,
+          "__v": 1
+        },
+        {
+          "_id": "6a9d1c6ad2fc1191a3fb36c1",
+          "title": "Плейофф, 1/8, левая сетка, бой 3",
+          "index": 2,
+          "side": 0,
+          "round": 0,
+          "floor": 0,
+          "stage": "6a9d1c57d2fc1191a3fb328c",
+          "users": [
+            {
+              "country": null,
+              "_id": "67057e6bbf4eb2e64883837b",
+              "username": "user-afis",
+              "name": "Gorbag",
+              "club": {
+                "country": null,
+                "_id": "5e285fee8e425229c945e0e4",
+                "idString": "orcs",
+                "title": "Orcs"
+              },
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "67057e6bbf4eb2e64883837b"
+            },
+            {
+              "country": null,
+              "_id": "5e2863f78e425229c945e0eb",
+              "name": "Tarrok",
+              "club": {
+                "country": null,
+                "_id": "5e285fee8e425229c945e0e4",
+                "idString": "orcs",
+                "title": "Orcs"
+              },
+              "username": "user-101l",
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "5e2863f78e425229c945e0eb"
+            }
+          ],
+          "fights": [
+            {
+              "fighter1": {
+                "user": {
+                  "country": null,
+                  "_id": "67057e6bbf4eb2e64883837b",
+                  "username": "user-afis",
+                  "name": "Gorbag",
+                  "club": {
+                    "country": null,
+                    "_id": "5e285fee8e425229c945e0e4",
+                    "idString": "orcs",
+                    "title": "Orcs"
+                  },
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "67057e6bbf4eb2e64883837b"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "fighter2": {
+                "user": {
+                  "country": null,
+                  "_id": "5e2863f78e425229c945e0eb",
+                  "name": "Tarrok",
+                  "club": {
+                    "country": null,
+                    "_id": "5e285fee8e425229c945e0e4",
+                    "idString": "orcs",
+                    "title": "Orcs"
+                  },
+                  "username": "user-101l",
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "5e2863f78e425229c945e0eb"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "_id": "6a9d1c6ad2fc1191a3fb36c3",
+              "doubles": 0,
+              "bouts": 0,
+              "timeInitial": 0,
+              "timeSpent": 0,
+              "timeReal": 0,
+              "result": "NONE",
+              "pool": "6a9d1c6ad2fc1191a3fb36c1",
+              "isActive": false,
+              "timerEnabled": false,
+              "__v": 0
+            }
+          ],
+          "usersPlaces": [
+            4,
+            13
+          ],
+          "isTeam": false,
+          "__v": 1
+        },
+        {
+          "_id": "6a9d1c6ad2fc1191a3fb36c7",
+          "title": "Плейофф, 1/8, левая сетка, бой 4",
+          "index": 3,
+          "side": 0,
+          "round": 0,
+          "floor": 0,
+          "stage": "6a9d1c57d2fc1191a3fb328c",
+          "users": [
+            {
+              "country": null,
+              "_id": "65faa662505f2cc00d24683b",
+              "username": "user-efn0j",
+              "name": "Zhor",
+              "club": {
+                "country": null,
+                "_id": "5e285fee8e425229c945e0e4",
+                "idString": "orcs",
+                "title": "Orcs"
+              },
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "65faa662505f2cc00d24683b"
+            },
+            {
+              "country": null,
+              "_id": "5e2863f78e425229c945e0f1",
+              "name": "Zorg",
+              "club": {
+                "country": null,
+                "_id": "5e285fee8e425229c945e0e4",
+                "idString": "orcs",
+                "title": "Orcs"
+              },
+              "username": "user-df9kv",
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "5e2863f78e425229c945e0f1"
+            }
+          ],
+          "fights": [
+            {
+              "fighter1": {
+                "user": {
+                  "country": null,
+                  "_id": "65faa662505f2cc00d24683b",
+                  "username": "user-efn0j",
+                  "name": "Zhor",
+                  "club": {
+                    "country": null,
+                    "_id": "5e285fee8e425229c945e0e4",
+                    "idString": "orcs",
+                    "title": "Orcs"
+                  },
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "65faa662505f2cc00d24683b"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "fighter2": {
+                "user": {
+                  "country": null,
+                  "_id": "5e2863f78e425229c945e0f1",
+                  "name": "Zorg",
+                  "club": {
+                    "country": null,
+                    "_id": "5e285fee8e425229c945e0e4",
+                    "idString": "orcs",
+                    "title": "Orcs"
+                  },
+                  "username": "user-df9kv",
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "5e2863f78e425229c945e0f1"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "_id": "6a9d1c6ad2fc1191a3fb36c9",
+              "doubles": 0,
+              "bouts": 0,
+              "timeInitial": 0,
+              "timeSpent": 0,
+              "timeReal": 0,
+              "result": "NONE",
+              "pool": "6a9d1c6ad2fc1191a3fb36c7",
+              "isActive": false,
+              "timerEnabled": false,
+              "__v": 0
+            }
+          ],
+          "usersPlaces": [
+            5,
+            12
+          ],
+          "isTeam": false,
+          "__v": 1
+        },
+        {
+          "_id": "6a9d1c6ad2fc1191a3fb36cd",
+          "title": "Плейофф, 1/8, правая сетка, бой 1",
+          "index": 0,
+          "side": 1,
+          "round": 0,
+          "floor": 0,
+          "stage": "6a9d1c57d2fc1191a3fb328c",
+          "users": [
+            {
+              "country": null,
+              "_id": "65faa682505f2cc00d24685a",
+              "username": "user-a4dj7",
+              "name": "Gun Chin",
+              "club": {
+                "country": null,
+                "_id": "5e285fee8e425229c945e0e4",
+                "idString": "orcs",
+                "title": "Orcs"
+              },
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "65faa682505f2cc00d24685a"
+            },
+            {
+              "country": null,
+              "_id": "5e2863f78e425229c945e0f0",
+              "name": "Bolg",
+              "club": {
+                "country": null,
+                "_id": "5e285fee8e425229c945e0e4",
+                "idString": "orcs",
+                "title": "Orcs"
+              },
+              "username": "user-4j9vm",
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "5e2863f78e425229c945e0f0"
+            }
+          ],
+          "fights": [
+            {
+              "fighter1": {
+                "user": {
+                  "country": null,
+                  "_id": "65faa682505f2cc00d24685a",
+                  "username": "user-a4dj7",
+                  "name": "Gun Chin",
+                  "club": {
+                    "country": null,
+                    "_id": "5e285fee8e425229c945e0e4",
+                    "idString": "orcs",
+                    "title": "Orcs"
+                  },
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "65faa682505f2cc00d24685a"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "fighter2": {
+                "user": {
+                  "country": null,
+                  "_id": "5e2863f78e425229c945e0f0",
+                  "name": "Bolg",
+                  "club": {
+                    "country": null,
+                    "_id": "5e285fee8e425229c945e0e4",
+                    "idString": "orcs",
+                    "title": "Orcs"
+                  },
+                  "username": "user-4j9vm",
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "5e2863f78e425229c945e0f0"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "_id": "6a9d1c6ad2fc1191a3fb36cf",
+              "doubles": 0,
+              "bouts": 0,
+              "timeInitial": 0,
+              "timeSpent": 0,
+              "timeReal": 0,
+              "result": "NONE",
+              "pool": "6a9d1c6ad2fc1191a3fb36cd",
+              "isActive": false,
+              "timerEnabled": false,
+              "__v": 0
+            }
+          ],
+          "usersPlaces": [
+            2,
+            15
+          ],
+          "isTeam": false,
+          "__v": 1
+        },
+        {
+          "_id": "6a9d1c6ad2fc1191a3fb36d3",
+          "title": "Плейофф, 1/8, правая сетка, бой 2",
+          "index": 1,
+          "side": 1,
+          "round": 0,
+          "floor": 0,
+          "stage": "6a9d1c57d2fc1191a3fb328c",
+          "users": [
+            {
+              "country": null,
+              "_id": "5e2863f78e425229c945e0e9",
+              "name": "Orkobal",
+              "club": {
+                "country": null,
+                "_id": "5e285fee8e425229c945e0e4",
+                "idString": "orcs",
+                "title": "Orcs"
+              },
+              "username": "user-f4a9",
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "5e2863f78e425229c945e0e9"
+            },
+            {
+              "country": null,
+              "_id": "67057e8fbf4eb2e6488383ca",
+              "username": "user-kt5vn",
+              "name": "Globug",
+              "club": {
+                "country": null,
+                "_id": "5e285fee8e425229c945e0e4",
+                "idString": "orcs",
+                "title": "Orcs"
+              },
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "67057e8fbf4eb2e6488383ca"
+            }
+          ],
+          "fights": [
+            {
+              "fighter1": {
+                "user": {
+                  "country": null,
+                  "_id": "5e2863f78e425229c945e0e9",
+                  "name": "Orkobal",
+                  "club": {
+                    "country": null,
+                    "_id": "5e285fee8e425229c945e0e4",
+                    "idString": "orcs",
+                    "title": "Orcs"
+                  },
+                  "username": "user-f4a9",
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "5e2863f78e425229c945e0e9"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "fighter2": {
+                "user": {
+                  "country": null,
+                  "_id": "67057e8fbf4eb2e6488383ca",
+                  "username": "user-kt5vn",
+                  "name": "Globug",
+                  "club": {
+                    "country": null,
+                    "_id": "5e285fee8e425229c945e0e4",
+                    "idString": "orcs",
+                    "title": "Orcs"
+                  },
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "67057e8fbf4eb2e6488383ca"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "_id": "6a9d1c6ad2fc1191a3fb36d5",
+              "doubles": 0,
+              "bouts": 0,
+              "timeInitial": 0,
+              "timeSpent": 0,
+              "timeReal": 0,
+              "result": "NONE",
+              "pool": "6a9d1c6ad2fc1191a3fb36d3",
+              "isActive": false,
+              "timerEnabled": false,
+              "__v": 0
+            }
+          ],
+          "usersPlaces": [
+            7,
+            10
+          ],
+          "isTeam": false,
+          "__v": 1
+        },
+        {
+          "_id": "6a9d1c6ad2fc1191a3fb36d9",
+          "title": "Плейофф, 1/8, правая сетка, бой 3",
+          "index": 2,
+          "side": 1,
+          "round": 0,
+          "floor": 0,
+          "stage": "6a9d1c57d2fc1191a3fb328c",
+          "users": [
+            {
+              "country": null,
+              "_id": "5e2863f78e425229c945e0ec",
+              "name": "Otrod",
+              "club": {
+                "country": null,
+                "_id": "5e285fee8e425229c945e0e4",
+                "idString": "orcs",
+                "title": "Orcs"
+              },
+              "username": "user-evbnc",
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "5e2863f78e425229c945e0ec"
+            },
+            {
+              "country": null,
+              "_id": "5e2863f78e425229c945e0ed",
+              "name": "Shagrat",
+              "club": {
+                "country": null,
+                "_id": "5e285fee8e425229c945e0e4",
+                "idString": "orcs",
+                "title": "Orcs"
+              },
+              "username": "user-lqqoe",
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "5e2863f78e425229c945e0ed"
+            }
+          ],
+          "fights": [
+            {
+              "fighter1": {
+                "user": {
+                  "country": null,
+                  "_id": "5e2863f78e425229c945e0ec",
+                  "name": "Otrod",
+                  "club": {
+                    "country": null,
+                    "_id": "5e285fee8e425229c945e0e4",
+                    "idString": "orcs",
+                    "title": "Orcs"
+                  },
+                  "username": "user-evbnc",
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "5e2863f78e425229c945e0ec"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "fighter2": {
+                "user": {
+                  "country": null,
+                  "_id": "5e2863f78e425229c945e0ed",
+                  "name": "Shagrat",
+                  "club": {
+                    "country": null,
+                    "_id": "5e285fee8e425229c945e0e4",
+                    "idString": "orcs",
+                    "title": "Orcs"
+                  },
+                  "username": "user-lqqoe",
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "5e2863f78e425229c945e0ed"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "_id": "6a9d1c6ad2fc1191a3fb36db",
+              "doubles": 0,
+              "bouts": 0,
+              "timeInitial": 0,
+              "timeSpent": 0,
+              "timeReal": 0,
+              "result": "NONE",
+              "pool": "6a9d1c6ad2fc1191a3fb36d9",
+              "isActive": false,
+              "timerEnabled": false,
+              "__v": 0
+            }
+          ],
+          "usersPlaces": [
+            3,
+            14
+          ],
+          "isTeam": false,
+          "__v": 1
+        },
+        {
+          "_id": "6a9d1c6ad2fc1191a3fb36df",
+          "title": "Плейофф, 1/8, правая сетка, бой 4",
+          "index": 3,
+          "side": 1,
+          "round": 0,
+          "floor": 0,
+          "stage": "6a9d1c57d2fc1191a3fb328c",
+          "users": [
+            {
+              "country": null,
+              "_id": "65faa8c4505f2cc00d246afe",
+              "username": "user-4ori5m",
+              "name": "Ingwë",
+              "club": {
+                "country": null,
+                "_id": "5e2861158e425229c945e0e6",
+                "idString": "elves",
+                "title": "Elves"
+              },
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "65faa8c4505f2cc00d246afe"
+            },
+            {
+              "country": null,
+              "_id": "67057e7dbf4eb2e6488383ab",
+              "username": "user-j5xpt",
+              "name": "Bug Bug",
+              "club": {
+                "country": null,
+                "_id": "5e285fee8e425229c945e0e4",
+                "idString": "orcs",
+                "title": "Orcs"
+              },
+              "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+              "id": "67057e7dbf4eb2e6488383ab"
+            }
+          ],
+          "fights": [
+            {
+              "fighter1": {
+                "user": {
+                  "country": null,
+                  "_id": "65faa8c4505f2cc00d246afe",
+                  "username": "user-4ori5m",
+                  "name": "Ingwë",
+                  "club": {
+                    "country": null,
+                    "_id": "5e2861158e425229c945e0e6",
+                    "idString": "elves",
+                    "title": "Elves"
+                  },
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "65faa8c4505f2cc00d246afe"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "fighter2": {
+                "user": {
+                  "country": null,
+                  "_id": "67057e7dbf4eb2e6488383ab",
+                  "username": "user-j5xpt",
+                  "name": "Bug Bug",
+                  "club": {
+                    "country": null,
+                    "_id": "5e285fee8e425229c945e0e4",
+                    "idString": "orcs",
+                    "title": "Orcs"
+                  },
+                  "countryFlagProxyPath": "https://imgproxy.stage.hemagon.com/Os56o08YFv9e736Oct25yBFiFnLnjniL2qFIVRKO8-4/dpr:2/fn:c2FtcGxlLWNvdW50cnktZmxhZy0zMg:t/f:webp/g:ce/q:90/rs:fill:32:32:t/scp:t/sm:t/aHR0cDovL2hlbWFnb25fZnJvbnRlbmRfd2ViOjgwL2NvdW50cnlfZmxhZy5wbmc",
+                  "id": "67057e7dbf4eb2e6488383ab"
+                },
+                "scores": 0,
+                "appeals": 0,
+                "warnings": 0,
+                "warnings2": 0,
+                "penaltyPoints": 0
+              },
+              "_id": "6a9d1c6ad2fc1191a3fb36e1",
+              "doubles": 0,
+              "bouts": 0,
+              "timeInitial": 0,
+              "timeSpent": 0,
+              "timeReal": 0,
+              "result": "NONE",
+              "pool": "6a9d1c6ad2fc1191a3fb36df",
+              "isActive": false,
+              "timerEnabled": false,
+              "__v": 0
+            }
+          ],
+          "usersPlaces": [
+            6,
+            11
+          ],
+          "isTeam": false,
+          "__v": 1
+        }
+      ],
+      "disqualifiedUsers": [],
+      "__v": 1
+    }
+  },
+  "stagesAfterBuild": {
+    "types": [
+      "POOL",
+      "ELIMINATION_DOUBLE"
+    ],
+    "pool": {
+      "_id": "6a9d1c56d2fc1191a3fb3282",
+      "type": "POOL",
+      "order": 0,
+      "settings": {
+        "tillFinals": false,
+        "outputCount": 16,
+        "minimumFromEachPool": 0,
+        "finalsMode": "BO_1",
+        "unlimitedPool": false,
+        "fightForThirdPlace": true,
+        "fightTime": 120
+      },
+      "poolBoutCount": 3,
+      "uniqueEntrantsRound0": 16,
+      "sideRoundSummary": {
+        "0-r0": [
+          {
+            "title": "Pool 1",
+            "index": 0,
+            "side": 0,
+            "round": 0,
+            "users": 6,
+            "fights": 15,
+            "fightResults": [
+              "F1_WIN",
+              "F2_WIN",
+              "F1_WIN",
+              "F1_WIN",
+              "F2_WIN",
+              "F1_WIN",
+              "F2_WIN",
+              "F1_WIN",
+              "F1_WIN",
+              "F2_WIN",
+              "F1_WIN",
+              "F2_WIN",
+              "F2_WIN",
+              "F2_WIN",
+              "F2_WIN"
+            ]
+          },
+          {
+            "title": "Pool 2",
+            "index": 1,
+            "side": 0,
+            "round": 0,
+            "users": 5,
+            "fights": 10,
+            "fightResults": [
+              "F2_WIN",
+              "F2_WIN",
+              "F2_WIN",
+              "F2_WIN",
+              "F2_WIN",
+              "F1_WIN",
+              "F1_WIN",
+              "F2_WIN",
+              "F2_WIN",
+              "F2_WIN"
+            ]
+          },
+          {
+            "title": "Pool 3",
+            "index": 2,
+            "side": 0,
+            "round": 0,
+            "users": 5,
+            "fights": 10,
+            "fightResults": [
+              "F2_WIN",
+              "F2_WIN",
+              "F2_WIN",
+              "F1_WIN",
+              "F2_WIN",
+              "F1_WIN",
+              "F2_WIN",
+              "F2_WIN",
+              "F2_WIN",
+              "F2_WIN"
+            ]
+          }
+        ]
+      },
+      "boutTitles": [
+        "Pool 1",
+        "Pool 2",
+        "Pool 3"
+      ]
+    },
+    "doubleElim": {
+      "_id": "6a9d1c57d2fc1191a3fb328c",
+      "type": "ELIMINATION_DOUBLE",
+      "order": 0,
+      "settings": {
+        "tillFinals": true,
+        "outputCount": false,
+        "minimumFromEachPool": 0,
+        "finalsMode": "BO_1",
+        "unlimitedPool": false,
+        "fightForThirdPlace": true,
+        "fightTime": 120
+      },
+      "poolBoutCount": 8,
+      "uniqueEntrantsRound0": 16,
+      "sideRoundSummary": {
+        "0-r0": [
+          {
+            "title": "Плейофф, 1/8, левая сетка, бой 1",
+            "index": 0,
+            "side": 0,
+            "round": 0,
+            "users": 2,
+            "fights": 1,
+            "fightResults": [
+              "NONE"
+            ]
+          },
+          {
+            "title": "Плейофф, 1/8, левая сетка, бой 2",
+            "index": 1,
+            "side": 0,
+            "round": 0,
+            "users": 2,
+            "fights": 1,
+            "fightResults": [
+              "NONE"
+            ]
+          },
+          {
+            "title": "Плейофф, 1/8, левая сетка, бой 3",
+            "index": 2,
+            "side": 0,
+            "round": 0,
+            "users": 2,
+            "fights": 1,
+            "fightResults": [
+              "NONE"
+            ]
+          },
+          {
+            "title": "Плейофф, 1/8, левая сетка, бой 4",
+            "index": 3,
+            "side": 0,
+            "round": 0,
+            "users": 2,
+            "fights": 1,
+            "fightResults": [
+              "NONE"
+            ]
+          }
+        ],
+        "1-r0": [
+          {
+            "title": "Плейофф, 1/8, правая сетка, бой 1",
+            "index": 0,
+            "side": 1,
+            "round": 0,
+            "users": 2,
+            "fights": 1,
+            "fightResults": [
+              "NONE"
+            ]
+          },
+          {
+            "title": "Плейофф, 1/8, правая сетка, бой 2",
+            "index": 1,
+            "side": 1,
+            "round": 0,
+            "users": 2,
+            "fights": 1,
+            "fightResults": [
+              "NONE"
+            ]
+          },
+          {
+            "title": "Плейофф, 1/8, правая сетка, бой 3",
+            "index": 2,
+            "side": 1,
+            "round": 0,
+            "users": 2,
+            "fights": 1,
+            "fightResults": [
+              "NONE"
+            ]
+          },
+          {
+            "title": "Плейофф, 1/8, правая сетка, бой 4",
+            "index": 3,
+            "side": 1,
+            "round": 0,
+            "users": 2,
+            "fights": 1,
+            "fightResults": [
+              "NONE"
+            ]
+          }
+        ]
+      },
+      "boutTitles": [
+        "Плейофф, 1/8, левая сетка, бой 1",
+        "Плейофф, 1/8, левая сетка, бой 2",
+        "Плейофф, 1/8, левая сетка, бой 3",
+        "Плейофф, 1/8, левая сетка, бой 4",
+        "Плейофф, 1/8, правая сетка, бой 1",
+        "Плейофф, 1/8, правая сетка, бой 2",
+        "Плейофф, 1/8, правая сетка, бой 3",
+        "Плейофф, 1/8, правая сетка, бой 4"
+      ]
+    }
+  },
+  "bracketUi": null,
+  "publicPage": null,
+  "errors": [
+    "locator.innerText: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('.card.card-huge.card-outline').nth(1)\n\n    at captureBracketUi (/home/colt/work/Hemagon_Playwright/scripts/discover-double-elimination.mjs:365:27)\n    at main (/home/colt/work/Hemagon_Playwright/scripts/discover-double-elimination.mjs:558:30)"
+  ],
+  "tournamentId": "6a9d1c52d2fc1191a3fb31c9",
+  "nominationId": "6a9d1c52d2fc1191a3fb31cf",
+  "enrolledCount": 16,
+  "enrollSource": "api-cache",
+  "stagesPageUrl": "https://stage.hemagon.com/organizer/tournaments/6a9d1c52d2fc1191a3fb31c9/nominations/6a9d1c52d2fc1191a3fb31cf/stages",
+  "stagesPageTitle": "Tournament Nomination Stages | Hemagon",
+  "goesNextStageSet": 16,
+  "poolRunButtonCount": 3,
+  "conductedPools": 3,
+  "poolStageBeforeBuild": {
+    "_id": "6a9d1c56d2fc1191a3fb3282",
+    "type": "POOL",
+    "order": 0,
+    "settings": {
+      "tillFinals": false,
+      "outputCount": 16,
+      "minimumFromEachPool": 0,
+      "finalsMode": "BO_1",
+      "unlimitedPool": false,
+      "fightForThirdPlace": true,
+      "fightTime": 120
+    },
+    "poolBoutCount": 3,
+    "uniqueEntrantsRound0": 16,
+    "sideRoundSummary": {
+      "0-r0": [
+        {
+          "title": "Pool 1",
+          "index": 0,
+          "side": 0,
+          "round": 0,
+          "users": 6,
+          "fights": 15,
+          "fightResults": [
+            "F1_WIN",
+            "F2_WIN",
+            "F1_WIN",
+            "F1_WIN",
+            "F2_WIN",
+            "F1_WIN",
+            "F2_WIN",
+            "F1_WIN",
+            "F1_WIN",
+            "F2_WIN",
+            "F1_WIN",
+            "F2_WIN",
+            "F2_WIN",
+            "F2_WIN",
+            "F2_WIN"
+          ]
+        },
+        {
+          "title": "Pool 2",
+          "index": 1,
+          "side": 0,
+          "round": 0,
+          "users": 5,
+          "fights": 10,
+          "fightResults": [
+            "F2_WIN",
+            "F2_WIN",
+            "F2_WIN",
+            "F2_WIN",
+            "F2_WIN",
+            "F1_WIN",
+            "F1_WIN",
+            "F2_WIN",
+            "F2_WIN",
+            "F2_WIN"
+          ]
+        },
+        {
+          "title": "Pool 3",
+          "index": 2,
+          "side": 0,
+          "round": 0,
+          "users": 5,
+          "fights": 10,
+          "fightResults": [
+            "F2_WIN",
+            "F2_WIN",
+            "F2_WIN",
+            "F1_WIN",
+            "F2_WIN",
+            "F1_WIN",
+            "F2_WIN",
+            "F2_WIN",
+            "F2_WIN",
+            "F2_WIN"
+          ]
+        }
+      ]
+    },
+    "boutTitles": [
+      "Pool 1",
+      "Pool 2",
+      "Pool 3"
+    ]
+  },
+  "ratingSplit": {
+    "rankedTop8": [
+      {
+        "name": "Dhog Bukk",
+        "wins": 4,
+        "points": 18,
+        "inBracket": true
+      },
+      {
+        "name": "Gorbag",
+        "wins": 3,
+        "points": 18,
+        "inBracket": true
+      },
+      {
+        "name": "Otrod",
+        "wins": 3,
+        "points": 17,
+        "inBracket": true
+      },
+      {
+        "name": "Ingwë",
+        "wins": 3,
+        "points": 16,
+        "inBracket": true
+      },
+      {
+        "name": "Zhor",
+        "wins": 3,
+        "points": 14,
+        "inBracket": true
+      },
+      {
+        "name": "Gun Chin",
+        "wins": 3,
+        "points": 13,
+        "inBracket": true
+      },
+      {
+        "name": "Orkobal",
+        "wins": 2,
+        "points": 17,
+        "inBracket": true
+      },
+      {
+        "name": "Ugluck",
+        "wins": 2,
+        "points": 16,
+        "inBracket": true
+      }
+    ],
+    "rankedBottom8": [
+      {
+        "name": "Sharu",
+        "wins": 2,
+        "points": 15,
+        "inBracket": true
+      },
+      {
+        "name": "Zorg",
+        "wins": 2,
+        "points": 14,
+        "inBracket": true
+      },
+      {
+        "name": "Globug",
+        "wins": 2,
+        "points": 13,
+        "inBracket": true
+      },
+      {
+        "name": "Bug Bug",
+        "wins": 2,
+        "points": 13,
+        "inBracket": true
+      },
+      {
+        "name": "Bolg",
+        "wins": 1,
+        "points": 16,
+        "inBracket": true
+      },
+      {
+        "name": "Zavarak",
+        "wins": 1,
+        "points": 13,
+        "inBracket": true
+      },
+      {
+        "name": "Shagrat",
+        "wins": 1,
+        "points": 11,
+        "inBracket": true
+      },
+      {
+        "name": "Tarrok",
+        "wins": 1,
+        "points": 10,
+        "inBracket": true
+      }
+    ],
+    "upperSideCount": 8,
+    "lowerSideCount": 8,
+    "totalEntrants": 16,
+    "upperInTopHalf": 4,
+    "lowerInBottomHalf": 4
+  },
+  "failureUrl": "https://stage.hemagon.com/organizer/tournaments/6a9d1c52d2fc1191a3fb31c9/nominations/6a9d1c52d2fc1191a3fb31cf/stages",
+  "failureText": "CSEN\nDanish Nationals\nHHF\nNordic\nCIS\nWorld\nEn\nRu\nHEMAGON\n MENU\nAdmin TestUser\n Profile\n My applications\n Settings\n My tournaments\n Organization settings\n Users\n Clubs\n Admin\n Sign out\nMy tournaments\n/\nAUTOTEST DE discovery 1788681304952\n/\nDE Probe\nGo to public page\nOverview\nSettings\nParticipants\nStages\n ADD STAGE\nStage 1. Pools\n6a9d1c56d2fc1191a3fb3282\n EDIT\n REMOVE STAGE\nDROP OUT FIGHTER\nRATING\nUSERS\n16\nGOES NEXT STAGE\n16\nThe pool cannot have more than 7 fighters\nStage 2. Double Elimination\n6a9d1c57d2fc1191a3fb328c\n EDIT\n REMOVE STAGE\nUSERS\n0\nTO THE FINALS\n RND RESULTS\nDRAWS\nRound 1\n RND RESULTS\nDRAWS\n CHANGE PARTICIPANTS\n REMOVE ROUND\nWinner Bracket\nRING\n RUN\n6a9d1c6ad2fc1191a3fb36b5\nUpper bracket, Left bracket, Round 1, fight 1\n RUN\n REMOVE\nDhog Bukk\n•\nOrcs\nZavarak\n•\nOrcs\n6a9d1c6ad2fc1191a3fb36b7\n6a9d1c6ad2fc1191a3fb36bb\nUpper bracket, Left bracket, Round 1, fight 2\n RUN\n REMOVE\nUgluck\n•\nOrcs\nSharu\n•\nOrcs\n6a9d1c6ad2fc1191a3fb36bd\n6a9d1c6ad2fc1191a3fb36c1\nUpper bracket, Left bracket, Round 1, fight 3\n RUN\n REMOVE\nGorbag\n•\nOrcs\nTarrok\n•\nOrcs\n6a9d1c6ad2fc1191a3fb36c3\n6a9d1c6ad2fc1191a3fb36c7\nUpper bracket, Left bracket, Round 1, fight 4\n RUN\n REMOVE\nZhor\n•\nOrcs\nZorg\n•\nOrcs\n6a9d1c6ad2fc1191a3fb36c9\n6a9d1c6ad2fc1191a3fb36cd\nUpper bracket, Right bracket, Round 1, fight 1\n RUN\n REMOVE\nGun Chin\n•\nOrcs\nBolg\n•\nOrcs\n6a9d1c6ad2fc1191a3fb36cf\n6a9d1c6ad2fc1191a3fb36d3\nUpper bracket, Right bracket, Round 1, fight 2\n RUN\n REMOVE\nOrkobal\n•\nOrcs\nGlobug\n•\nOrcs\n6a9d1c6ad2fc1191a3fb36d5\n6a9d1c6ad2fc1191a3fb36d9\nUpper bracket, Right bracket, Round 1, fight 3\n RUN\n REMOVE\nOtrod\n•\nOrcs\nShagrat\n•\nOrcs\n6a9d1c6ad2fc1191a3fb36db\n6a9d1c6ad2fc1191a3fb36df\nUpper bracket, Right bracket, Round 1, fight 4\n RUN\n REMOVE\nIngwë\n•\nElves\nBug Bug\n•\nOrcs\n6a9d1c6ad2fc1191a3fb36e1\nLoser Bracket\nNo fights on loser bracket on first round\nBUILD NEXT ELIMINATION ROUND\nContacts\nAbout Us\nTerms of Use\nPrivacy Policy\nCookie Policy\nCookie settings"
+}

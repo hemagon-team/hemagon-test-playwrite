@@ -70,7 +70,7 @@ run.full:
 	fi; \
 	$(MAKE) report.open
 
-# --- Docker (same image as .github/workflows/docker-tests.yml) ---
+# --- Docker (same image as .github/workflows/ci.yml) ---
 
 docker.build:
 	docker build -t $(DOCKER_IMAGE) .

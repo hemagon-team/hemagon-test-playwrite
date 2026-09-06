@@ -1,0 +1,8 @@
+{
+  "id": "32p-6pool-all-de",
+  "description": "32 participants, 6 pools, all advance to double elimination",
+  "participantsNumber": 32,
+  "poolsCount": 6,
+  "finalsMode": "BO_1",
+  "tillFinals": "yes"
+}

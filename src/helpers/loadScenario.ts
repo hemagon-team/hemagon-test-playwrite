@@ -2,6 +2,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { z } from 'zod';
 import {
+  PoolsDoubleEliminationScenarioSchema,
+  type PoolsDoubleEliminationScenario,
+} from '../schemas/poolsDoubleEliminationScenario.schema';
+import {
   PoolsEliminationScenarioSchema,
   type PoolsEliminationScenario,
 } from '../schemas/poolsEliminationScenario.schema';
@@ -12,8 +16,9 @@ import {
 
 const SCENARIOS_ROOT = path.resolve(__dirname, '../../scenarios');
 
-const POOLS_ELIMINATION_DIR = 'pools-elimination';
-const SWISS_DIR             = 'swiss';
+const POOLS_ELIMINATION_DIR        = 'pools-elimination';
+const POOLS_DOUBLE_ELIMINATION_DIR = 'pools-double-elimination';
+const SWISS_DIR                    = 'swiss';
 
 function loadScenario<S extends z.ZodType>(
   dir: string,
@@ -42,6 +47,10 @@ function listScenarios<S extends z.ZodType>(dir: string, schema: S): z.output<S>
 
 export function listPoolsEliminationScenarios(): PoolsEliminationScenario[] {
   return listScenarios(POOLS_ELIMINATION_DIR, PoolsEliminationScenarioSchema);
+}
+
+export function listPoolsDoubleEliminationScenarios(): PoolsDoubleEliminationScenario[] {
+  return listScenarios(POOLS_DOUBLE_ELIMINATION_DIR, PoolsDoubleEliminationScenarioSchema);
 }
 
 export function listSwissScenarios(): SwissScenario[] {
