@@ -10,5 +10,6 @@ export const ORGANIZER_STORAGE_STATE = '.cache/auth/organizer.json';
 export const TIMEOUTS = {
   short:   10_000,
   default: 15_000,
-  long:    30_000,
+  /** Stage under parallel Docker CI can exceed 30s before interactive widgets render. */
+  long:    process.env.CI ? 60_000 : 30_000,
 } as const;

@@ -1,6 +1,7 @@
 import { expect, type Page } from '@playwright/test';
 import { TIMEOUTS } from '../../data/config';
 import { endpoints } from '../../data/endpoints';
+import { expectOrganizerShellLoaded } from '../../helpers/organizerPage';
 import { submitAndCapture } from '../../helpers/uiCapture';
 import {
   TournamentSettingsFormSection,
@@ -23,12 +24,14 @@ export class TournamentSettingsPage {
   }
 
   async openNew(): Promise<void> {
-    await this.page.goto('/organizer/tournaments/new/settings');
+    await this.page.goto('/organizer/tournaments/new/settings', { waitUntil: 'domcontentloaded' });
     await this.expectLoaded();
   }
 
   async open(tournamentId: string): Promise<void> {
-    await this.page.goto(`/organizer/tournaments/${tournamentId}/settings`);
+    await this.page.goto(`/organizer/tournaments/${tournamentId}/settings`, {
+      waitUntil: 'domcontentloaded',
+    });
     await this.expectLoaded();
   }
 
@@ -36,6 +39,7 @@ export class TournamentSettingsPage {
     await this.page.waitForURL(/\/organizer\/tournaments\/(?:new|[a-f0-9]+)\/settings(?:$|\?)/, {
       timeout: TIMEOUTS.long,
     });
+    await expectOrganizerShellLoaded(this.page);
     await this.form.expectLoaded();
   }
 

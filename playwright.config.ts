@@ -36,6 +36,7 @@ export default defineConfig({
   use: {
     baseURL: process.env.BASE_URL,
     trace: 'on-first-retry',
+    navigationTimeout: process.env.CI ? 60_000 : 30_000,
   },
 
   projects: [

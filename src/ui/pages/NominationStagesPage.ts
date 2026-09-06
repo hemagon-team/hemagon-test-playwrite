@@ -1,5 +1,6 @@
 import { expect, type Page } from '@playwright/test';
 import { TIMEOUTS } from '../../data/config';
+import { expectOrganizerShellLoaded } from '../../helpers/organizerPage';
 import { nominationStagesSelectors } from '../selectors';
 import { NominationStagesCardsSection } from '../components/stages/NominationStagesCardsSection';
 import { StageAddFormSection } from '../components/stages/StageAddFormSection';
@@ -31,6 +32,7 @@ export class NominationStagesPage {
   async open(tournamentId: string, nominationId: string): Promise<void> {
     await this.page.goto(
       `/organizer/tournaments/${tournamentId}/nominations/${nominationId}/stages`,
+      { waitUntil: 'domcontentloaded' },
     );
     await this.expectLoaded();
   }
@@ -40,6 +42,7 @@ export class NominationStagesPage {
       /\/organizer\/tournaments\/[a-f0-9]+\/nominations\/[a-f0-9]+\/stages(?:$|\?)/,
       { timeout: TIMEOUTS.long },
     );
+    await expectOrganizerShellLoaded(this.page);
     await this.stages.expectLoaded();
   }
 
